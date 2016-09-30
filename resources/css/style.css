@@ -515,7 +515,7 @@ footer p{
 }    
     
     
-@media only screen and (max-width: 310px) {
+@media only screen and (max-width: 380px) {
     h1{
     font-size: 160%;
     letter-spacing: 6px;    
