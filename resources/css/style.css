@@ -345,6 +345,7 @@ header{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    
 }
 
 
@@ -466,7 +467,7 @@ footer p{
 
 .js-wp-4.animated {
     opacity: 1;
-    animation-delay: 1.4s;
+    animation-delay: 0.7s;
 }
 
 /* RESPONSIVENESS */
@@ -511,7 +512,10 @@ footer p{
 @media only screen and (max-width: 480px) {
     .sticky {
     width: 100%;
-}
+    }
+    #item-lemon{
+        margin-top: -260px;
+    }
 }    
     
     
@@ -534,6 +538,9 @@ footer p{
     margin-right: 2px;
     margin-top: 8px;
     padding: 8px;
+    }
+    #item-lemon{
+        margin-top: -260px;
     }
 }
 
