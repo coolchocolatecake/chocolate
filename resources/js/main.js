@@ -1,93 +1,82 @@
 $(document).ready(function(){
-  
-    $(window).scroll (function() {
-        if ($(window).scrollTop()>685) {
-            $('.navbar-dark').addClass('navbar-fixed-top');
-        }
-        if ($(window).scrollTop()<686) {
-            $('.navbar-dark').removeClass('navbar-fixed-top');
-    }
-        
-    });
-
-    
-    /* nav script */
-    
-    $(function() {
-        $('a[href*="#"]:not([href="#"])').click(function() {
-            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-              var target = $(this.hash);
-              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-              if (target.length) {
-                $('html, body').animate({
-                  scrollTop: target.offset().top -35
-                }, 1000);
-                return false;
-              }
-    }
-  });
+    $('.js--section-features').waypoint(function(direction) {
+        if (direction == "down") {
+            $('nav').addClass('sticky');
+        } else {
+            $('nav').removeClass('sticky');
+        }   
+    },{
+        offset: '50px'        
+    });    
 });
-    
-    
-    
-    
-    
-/*map*/    
-    
-    
-var map = new GMaps({
-  div: '.map',
-  lat: 25.0339031,
-  lng: 121.5623212
-});    
-    
 
-map.addMarker({
-  lat: 25.0339031,
-  lng: 121.5623212,
-  title: '101',
-  infoWindow: {
-  content: '<p>Taipei 101</p>'
-}
-});   
+$(".navbar-dark ul li a[href^='#']").on('click',function(e) {
     
-/*animate*/
-    $('.js--wp-1').waypoint(function(direction){
-        $('.js--wp-1').addClass('animated fadeIn');
-    }, {
-        offset:'50%'
+    e.preventDefault();
+    var hash = this.hash;
+    $('html, body').animate({
+        scrollTop:$(hash).offset().top
+    }, 300, function(){
+        window.location.hash = hash;
     });
     
-    $('.js--wp-2').waypoint(function(direction){
-        $('.js--wp-2').addClass('animated fadeInLeft');
-    }, {
-        offset:'50%'
+});
+
+
+$("#cover .hero-text-box a[href^='#']").on('click',function(e) {
+    
+    e.preventDefault();
+    var hash = this.hash;
+    $('html, body').animate({
+        scrollTop:$(hash).offset().top
+    }, 800, function(){
+        window.location.hash = hash;
     });
     
-    $('.js--wp-3').waypoint(function(direction){
-        $('.js--wp-3').addClass('animated fadeInRight');
-    }, {
-        offset:'50%'
-    });
-    
-    $('.js--wp-4').waypoint(function(direction){
-        $('.js--wp-4').addClass('animated shake');
-    }, {
-        offset:'50%'
-    });
-    
-    $('.js--wp-5').waypoint(function(direction){
-        $('.js--wp-5').addClass('animated zoomInDown');
-    }, {
-        offset:'50%'
-    });
-    
-    $('.js--wp-6').waypoint(function(direction){
-        $('.js--wp-6').addClass('animated jello');
-    }, {
-        offset:'50%'
-    });
+});
 
     
+/* Mobile nav */
+     $('.js--nav-icon').click(function() {
+        var nav = $('.navbar-nav');
+        var icon = $('.js--nav-icon i');
+        
+        nav.slideToggle(200);
+        if (icon.hasClass('ion-navicon-round')) {
+            icon.addClass('ion-close-round');
+            icon.removeClass('ion-navicon-round');
+            
+        } else {
+            icon.addClass('ion-navicon-round');
+            icon.removeClass('ion-close-round');
+        }
+        
+    });  
+
+$('.js-wp-1').waypoint(function(direction) {
     
+    $('.js-wp-1').addClass('animated fadeInDown');
+},{
+    offset: '40%'
+});
+
+$('.js-wp-2').waypoint(function(direction) {
+    
+    $('.js-wp-2').addClass('animated fadeInDown');
+},{
+    offset: '40%'
+});
+
+$('.js-wp-3').waypoint(function(direction) {
+    
+    $('.js-wp-3').addClass('animated bounceInDown');
+},{
+    offset: '40%'
+});
+
+$('.js-wp-4').waypoint(function(direction) {
+    
+    $('.js-wp-4').addClass('animated shake');
+},{
+    offset: '40%'
 });
